@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  eventbus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build CI image
+        run: docker build -f docker/eventbus-ci.Dockerfile -t eventbus-ci .
+      - name: Run suites + demos (Python, JavaScript)
+        run: docker run --rm eventbus-ci
+      - name: Build and run demo image
+        run: docker build -f docker/eventbus-demo.Dockerfile -t eventbus-demo . && docker run --rm eventbus-demo
