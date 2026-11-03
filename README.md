@@ -8,7 +8,7 @@ Publishers attach typed routing tags; subscribers declare a
 containment filter; the broker assigns global sequence
 numbers. A git-backed broker variant persists the log.
 
-This repository is a generated export (version v0.37.0).
+This repository is a generated export (version v0.37.1).
 
 ## Run the demo
 
